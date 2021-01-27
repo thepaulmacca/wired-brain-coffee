@@ -6,10 +6,13 @@ jobs:
 
     steps:
       - checkout
+      
+      - run: build dependencies
+        command: bundle install
 
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: build the jekyll site
+          command: bundle exec jekyll build
 
       - run:
           name: Print the Current Time
